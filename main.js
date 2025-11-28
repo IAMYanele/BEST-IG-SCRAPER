@@ -28,7 +28,6 @@ const crawler = new CheerioCrawler(
         persistCookiesPerSession: true,
         maxRequestsPerCrawl: 1000,
         maxRequestRetries: 3,
-        headless: true,
     },
     crawlerConfig,
 );
