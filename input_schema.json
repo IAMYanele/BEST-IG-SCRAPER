@@ -1,0 +1,94 @@
+{
+  "title": "Instagram Scraper Input",
+  "description": "Input for the Instagram Scraper Actor",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "directUrls": {
+      "title": "Instagram URLs you want to scrape",
+      "uniqueItems": true,
+      "type": "array",
+      "description": "Add one or more Instagram URLs to scrape. The field is optional, but you need to either use this field or search query below.",
+      "editor": "stringList",
+      "prefill": [
+        "https://www.instagram.com/instagram/"
+      ]
+    },
+    "resultsType": {
+      "title": "What do you want to scrape from each page?",
+      "enum": [
+        "posts",
+        "comments",
+        "details",
+        "mentions",
+        "reels",
+        "stories"
+      ],
+      "type": "string",
+      "description": "You can choose to get posts, comments or details from Instagram URLs. Comments can only be scraped from post URLs.",
+      "default": "posts"
+    },
+    "resultsLimit": {
+      "title": "Max results per URL",
+      "minimum": 1,
+      "type": "integer",
+      "description": "How many posts or comments (max 50 comments per post) you want to scrape from each Instagram URL. If you set this to 1, you will get a single post from each page.",
+      "default": 10
+    },
+    "onlyPostsNewerThan": {
+      "title": "Newer than",
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])(T[0-2]\\d:[0-5]\\d(:[0-5]\\d)?(\\.\\d+)?Z?)?$|^(\\d+)\\s*(minute|hour|day|week|month|year)s?$",
+      "description": "Limit how far back to the history the scraper should go. The date should be in YYYY-MM-DD or full ISO absolute format or in relative format e.g. 1 days, 2 months, 3 years. All time values are taken in UTC timezone"
+    },
+    "isUserTaggedFeedURL": {
+      "title": "Tagged posts",
+      "type": "boolean",
+      "description": "Get the tagged posts for each profile",
+      "default": false
+    },
+    "isUserReelFeedURL": {
+      "title": "Reels posts",
+      "type": "boolean",
+      "description": "Get the reels posts for each profile",
+      "default": false
+    },
+    "search": {
+      "title": "Search query",
+      "type": "string",
+      "description": "Provide a search query which will be used to search Instagram for profiles, hashtags or places."
+    },
+    "searchType": {
+      "title": "Search type",
+      "enum": [
+        "user",
+        "hashtag",
+        "place"
+      ],
+      "type": "string",
+      "description": "What type of pages to search for (you can look for hashtags, profiles or places).",
+      "default": "hashtag"
+    },
+    "searchLimit": {
+      "title": "Search results limit",
+      "minimum": 1,
+      "maximum": 250,
+      "type": "integer",
+      "description": "How many search results (hashtags, users or places) should be returned.",
+      "default": 10
+    },
+    "enhanceUserSearchWithFacebookPage": {
+      "title": "Enhance user search (top 10) with Facebook page & email if available (higher credit usage)",
+      "type": "boolean",
+      "description": "For each user from the top 10, the scraper extracts their Facebook page that sometimes contains their business email.",
+      "default": false
+    },
+    "addParentData": {
+      "title": "Add metadata",
+      "type": "boolean",
+      "description": "Only for feed items - add data source to results, i.e. for profile posts metadata is profile, for tag posts metadata is hashtag",
+      "default": false
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,16 @@
+{
+  "actorSpecVersion": 1,
+  "name": "instagram-scraper",
+  "title": "Instagram Scraper",
+  "description": "Scrape and download Instagram posts, profiles, places, hashtags, photos, and comments. Get data from Instagram using one or more Instagram URLs or search queries.",
+  "version": "1.0.0",
+  "dockerfile": "./Dockerfile",
+  "input": "./input_schema.json",
+  "storageClient": "platform",
+  "meta": {
+    "categories": [
+      "SOCIAL_MEDIA"
+    ],
+    "isPublic": true
+  }
+}
