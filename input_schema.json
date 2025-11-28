@@ -38,6 +38,7 @@
     "onlyPostsNewerThan": {
       "title": "Newer than",
       "type": "string",
+      "editor": "textinput",
       "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])(T[0-2]\\d:[0-5]\\d(:[0-5]\\d)?(\\.\\d+)?Z?)?$|^(\\d+)\\s*(minute|hour|day|week|month|year)s?$",
       "description": "Limit how far back to the history the scraper should go. The date should be in YYYY-MM-DD or full ISO absolute format or in relative format e.g. 1 days, 2 months, 3 years. All time values are taken in UTC timezone"
     },
@@ -56,6 +57,7 @@
     "search": {
       "title": "Search query",
       "type": "string",
+      "editor": "textinput",
       "description": "Provide a search query which will be used to search Instagram for profiles, hashtags or places."
     },
     "searchType": {
